@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
+
+
+    <TextView
+        android:id="@+id/text_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/image_user"
+        android:text="here is an answergjfkfkj"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/text_beforeDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/text_head"
+        android:text="date of creating: " />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/text_head"
+        android:layout_toEndOf="@+id/text_beforeDate"
+        android:text="12.12.2020" />
+
+    <TextView
+        android:id="@+id/text_beforeAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_beforeDate"
+        android:text="total of answers: " />
+
+    <TextView
+        android:id="@+id/text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_beforeDate"
+        android:layout_toEndOf="@+id/text_beforeAnswer"
+        android:text="123" />
+
+    <ImageView
+        android:id="@+id/image_user"
+        android:layout_alignParentEnd="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_user"
+        android:layout_alignRight="@+id/image_user"
+        android:layout_marginTop="5dp"
+        android:text="iamuser"
+        android:textSize="16dp" />
+
+</RelativeLayout>
