@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class Adapter(val clickListener: (Item) -> Unit ) : RecyclerView.Adapter<Adapter.ViewHolder>() {
@@ -40,11 +42,12 @@ class Adapter(val clickListener: (Item) -> Unit ) : RecyclerView.Adapter<Adapter
         val totalAnswer = itemView.findViewById(R.id.text_answer) as TextView
         val image = itemView.findViewById(R.id.image_user) as ImageView
         val nickname = itemView.findViewById(R.id.text_name) as TextView
+        val dateToNormal : SimpleDateFormat = SimpleDateFormat("dd.MM.yyyy")
 
         fun combineItems(item : Item, clickListener: (Item) -> Unit) {
-
+            val dateEdit : Date = Date(item.creationDate*1000)
             textHead.text = item.title
-            date.text = item.creationDate.toString()
+            date.text = dateToNormal.format(dateEdit)
             totalAnswer.text = item.answerCount.toString()
             nickname.text = item.owner.displayName
 
