@@ -8,11 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.list_answer.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class Adapter(val clickListener: (Item) -> Unit ) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(val clickListener: (Item) -> Unit, val clickLicstenerImage: (String) -> Unit) :
+    RecyclerView.Adapter<Adapter.ViewHolder>() {
 
 
     var items: List<Item> = listOf()
@@ -23,14 +25,14 @@ class Adapter(val clickListener: (Item) -> Unit ) : RecyclerView.Adapter<Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.combineItems(items[position],clickListener)
+        holder.combineItems(items[position], clickListener, clickLicstenerImage)
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    fun updateList(items : List<Item>){
+    fun updateList(items: List<Item>) {
         this.items = items
         notifyDataSetChanged()
     }
@@ -42,10 +44,14 @@ class Adapter(val clickListener: (Item) -> Unit ) : RecyclerView.Adapter<Adapter
         val totalAnswer = itemView.findViewById(R.id.text_answer) as TextView
         val image = itemView.findViewById(R.id.image_user) as ImageView
         val nickname = itemView.findViewById(R.id.text_name) as TextView
-        val dateToNormal : SimpleDateFormat = SimpleDateFormat("dd.MM.yyyy")
+        val dateToNormal: SimpleDateFormat = SimpleDateFormat("dd.MM.yyyy")
 
-        fun combineItems(item : Item, clickListener: (Item) -> Unit) {
-            val dateEdit : Date = Date(item.creationDate*1000)
+        fun combineItems(
+            item: Item,
+            clickListener: (Item) -> Unit,
+            clickLicstenerImage: (String) -> Unit
+        ) {
+            val dateEdit: Date = Date(item.creationDate * 1000)
             textHead.text = item.title
             date.text = dateToNormal.format(dateEdit)
             totalAnswer.text = item.answerCount.toString()
@@ -59,6 +65,9 @@ class Adapter(val clickListener: (Item) -> Unit ) : RecyclerView.Adapter<Adapter
 
             itemView.setOnClickListener {
                 clickListener(item)
+            }
+            image.setOnClickListener {
+                clickLicstenerImage(item.owner.link)
             }
         }
     }
