@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
         val elementIntent = Intent(this, SecondActivity::class.java)
         elementIntent.putExtra("title", element.title)
         elementIntent.putExtra("avatar", element.owner.profileImage)
-        elementIntent.putExtra("user_name",element.owner.displayName)
-        elementIntent.putExtra("date",element.creationDate)
+        elementIntent.putExtra("user_name", element.owner.displayName)
+        elementIntent.putExtra("date", element.creationDate)
         elementIntent.putExtra("questionId", element.question_id)
         startActivity(elementIntent)
     }, { link ->
@@ -38,19 +38,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickButton() {
         bSearch.setOnClickListener {
-            service.getQuestions(etSearch.text.toString()).enqueue(object : Callback<ResponseSearch> {
-                override fun onFailure(call: Call<ResponseSearch>, t: Throwable) {
-                    t.printStackTrace()
-                }
+            service.getQuestions(etSearch.text.toString())
+                .enqueue(object : Callback<ResponseSearch> {
+                    override fun onFailure(call: Call<ResponseSearch>, t: Throwable) {
+                        t.printStackTrace()
+                    }
 
-                override fun onResponse(
-                    call: Call<ResponseSearch>,
-                    response: Response<ResponseSearch>
-                ) {
-                    adapter.updateList(response.body()!!.item)
-                }
+                    override fun onResponse(
+                        call: Call<ResponseSearch>,
+                        response: Response<ResponseSearch>
+                    ) {
+                        adapter.updateList(response.body()!!.item)
+                    }
 
-            })
+                })
         }
     }
 
