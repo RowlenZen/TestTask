@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.list_answer.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun clickButton() {
         bSearch.setOnClickListener {
-            service.getAnswers(etSearch.text.toString()).enqueue(object : Callback<ResponseSearch> {
+            service.getQuestions(etSearch.text.toString()).enqueue(object : Callback<ResponseSearch> {
                 override fun onFailure(call: Call<ResponseSearch>, t: Throwable) {
                     t.printStackTrace()
                 }
