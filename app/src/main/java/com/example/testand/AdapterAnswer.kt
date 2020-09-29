@@ -14,7 +14,8 @@ class AdapterAnswer() : RecyclerView.Adapter<AdapterAnswer.ViewHolder>() {
     var answers: List<Answer> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_answer, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.list_reallyanswers, parent, false)
         return ViewHolder(view)
     }
 
@@ -36,7 +37,6 @@ class AdapterAnswer() : RecyclerView.Adapter<AdapterAnswer.ViewHolder>() {
         val score = itemView.findViewById<TextView>(R.id.score_number)
         val nameUser = itemView.findViewById<TextView>(R.id.nameUser_answer)
         val dateAnswer = itemView.findViewById<TextView>(R.id.date_answer)
-        val avatar = itemView.findViewById<ImageView>(R.id.avatar)
         val dateToNormal: SimpleDateFormat = SimpleDateFormat("dd.MM.yyyy")
 
         fun combine(item: Answer) {

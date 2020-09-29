@@ -18,16 +18,16 @@
         android:id="@+id/text_beforeDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_below="@+id/text_head"
+        android:layout_marginTop="5dp"
         android:text="date of creating: " />
 
     <TextView
         android:id="@+id/text_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_below="@+id/text_head"
+        android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/text_beforeDate"
         android:text="12.12.2020" />
 
@@ -48,9 +48,9 @@
 
     <ImageView
         android:id="@+id/image_user"
-        android:layout_alignParentEnd="true"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/text_name"

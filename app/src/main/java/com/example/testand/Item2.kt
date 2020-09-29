@@ -2,6 +2,6 @@ package com.example.testand
 
 import com.google.gson.annotations.SerializedName
 
-class ResponseOfbody(
-    @SerializedName("items") val items: List<Item2>
+class Item2(
+    @SerializedName("body") val body: String
 )
