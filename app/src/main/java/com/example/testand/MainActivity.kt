@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.list_answer.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,7 +19,13 @@ class MainActivity : AppCompatActivity() {
     private val bSearch by lazy { findViewById<Button>(R.id.b_search) }
     private val recycler by lazy { findViewById<RecyclerView>(R.id.rv_element) }
     private val adapter: Adapter = Adapter({ element ->
-        //второй экран
+        val elementIntent = Intent(this, SecondActivity::class.java)
+        elementIntent.putExtra("title", element.title)
+        elementIntent.putExtra("avatar", element.owner.profileImage)
+        elementIntent.putExtra("user_name",element.owner.displayName)
+        elementIntent.putExtra("date",element.creationDate)
+        elementIntent.putExtra("questionId", element.question_id)
+        startActivity(elementIntent)
     }, { link ->
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
         startActivity(browserIntent)
