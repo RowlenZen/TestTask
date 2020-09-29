@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/title_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fsdfsdfwefsfdsvs"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/text_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_question"
+        android:text="fsdkekdfsjvbksdf"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_question"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/name_owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_question"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/avatar"
+        android:text="gsfgfdgdfg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/name_owner"
+        android:layout_alignBottom="@+id/avatar"
+        android:layout_alignParentEnd="true"
+        android:text="12.12.1212" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_answer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/avatar"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</RelativeLayout>

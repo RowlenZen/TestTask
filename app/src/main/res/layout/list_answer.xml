@@ -8,10 +8,10 @@
     <TextView
         android:id="@+id/text_head"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/image_user"
-        android:text="here is an answergjfkfkj"
+        android:text="here is an answer"
         android:textSize="24dp" />
 
     <TextView
