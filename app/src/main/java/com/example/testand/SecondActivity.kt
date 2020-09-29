@@ -1,6 +1,7 @@
 package com.example.testand
 
 import android.os.Bundle
+import android.text.Html
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,12 +27,12 @@ class SecondActivity() : AppCompatActivity() {
         val userNameInScreen = findViewById<TextView>(R.id.name_owner)
         val dateInScreen = findViewById<TextView>(R.id.date_question)
         val avatarInScreen = findViewById<ImageView>(R.id.avatar)
-        var textQuestion = findViewById<TextView>(R.id.text_question)
+        val textQuestion = findViewById<TextView>(R.id.text_question)
 
         val dateToNormal: SimpleDateFormat = SimpleDateFormat("dd.MM.yyyy")
         val dateEdited: Date = Date((extras?.getLong("date"))!! * 1000)
         dateInScreen.text = dateToNormal.format(dateEdited)
-        titleInScreen.text = extras?.getString("title")
+        titleInScreen.text = Html.fromHtml(extras?.getString("title"))
         userNameInScreen.text = extras?.getString("user_name")
 
         Glide
@@ -48,7 +49,7 @@ class SecondActivity() : AppCompatActivity() {
                 call: Call<ResponseOfbody>,
                 response: Response<ResponseOfbody>
             ) {
-                textQuestion.text = response.body()!!.items[0].body
+                textQuestion.text = Html.fromHtml(response.body()!!.items[0].body)
             }
         })
         service.getAnswers(questionId).enqueue(object : Callback<ResponseOfanswers> {

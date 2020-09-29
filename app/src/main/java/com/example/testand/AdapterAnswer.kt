@@ -1,5 +1,6 @@
 package com.example.testand
 
+import android.text.Html
 import java.text.SimpleDateFormat
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,7 @@ class AdapterAnswer() : RecyclerView.Adapter<AdapterAnswer.ViewHolder>() {
 
         fun combine(item: Answer) {
             val dateEdited: Date = Date(item.creationDate * 1000)
-            textAnswer.text = item.body
+            textAnswer.text = Html.fromHtml(item.body)
             score.text = item.score.toString()
             nameUser.text = item.ownerAnswer.displayName
             dateAnswer.text = dateToNormal.format(dateEdited)
