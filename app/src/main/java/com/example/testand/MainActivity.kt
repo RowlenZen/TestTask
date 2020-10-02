@@ -4,8 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import android.widget.Toast.*
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,7 +51,12 @@ class MainActivity : AppCompatActivity() {
                         call: Call<ResponseSearch>,
                         response: Response<ResponseSearch>
                     ) {
-                        adapter.updateList(response.body()!!.item)
+                        if(response.body()!!.item.isEmpty()){
+                            val toast: Toast = makeText(applicationContext,"No results", LENGTH_SHORT)
+                            toast.setGravity(Gravity.CENTER_VERTICAL,0,0)
+                            toast.show()
+                        }
+                        else adapter.updateList(response.body()!!.item)
                     }
 
                 })
